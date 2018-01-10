@@ -19,7 +19,7 @@ The following section explains how to get started with Amazon Web Services (AWS)
 
 <br/>
 
-##Benefits of MDK
+## Benefits of MDK
 
 Keil MDK offers several benefits compared to open source development tools. For example you can see the thread activity of the RTOS kernel using the Event Recorder. 
 
