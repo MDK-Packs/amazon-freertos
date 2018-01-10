@@ -1,22 +1,29 @@
-# Getting Started with Amazon FreeRTOS on STMicroelectronics STM32L4 Discovery kit IoT node with MDK-ARM
+# Getting Started with Amazon FreeRTOS using Keil MDK from Arm
+## Target: STMicroelectronics STM32L4 Discovery kit IoT node
 
-1. On [web page](https://docs.aws.amazon.com/freertos/latest/userguide/freertos-getting-started.html) follow steps under **Create Your AWS IoT Credentials** section
-2. Download [Amazon FreeRTOS Device Software](https://github.com/MDK-Packs/amazon-freertos) and extract it to folder which will be referred as *BASE_FOLDER*
+The following section explains how to get started with Amazon Web Services (AWS) using Amazon FreeRTOS and Keil MDK. Follow these steps to connect your device to AWS.
+
+1. The page [Getting Started with Amazon FreeRTOS](https://docs.aws.amazon.com/freertos/latest/userguide/freertos-getting-started.html) contains some basic information. Follow steps under **Create Your AWS IoT Credentials** to prepare the AWS account for your IoT device.
+2. Download [Amazon FreeRTOS Device Software](https://github.com/MDK-Packs/amazon-freertos) and extract it to folder. This folder is referred as *BASE_FOLDER* in the following.
 3. Open &#181;Vision project **aws_demos.uvprojx** located in folder *<BASE_FOLDER>*\demos\st\stm32l475_discovery\mdk\
-4. On [web page](https://docs.aws.amazon.com/freertos/latest/userguide/getting_started_st.html) follow steps under **Configure Your Project** section:
-   - **Configure Your Wi-Fi Credentials** sub-section
-   - **Configure Your AWS IoT Endpoint** sub-section
-   - **Configure Your AWS IoT Credentials** sub-section
-   - **Run the FreeRTOS Samples** sub-section, only first 4 steps
-5. Connect PC with USB cable to STM32 IoT Discovery Board **USB STLINK** micro USB port
-6. **Download** executable to STM32 IoT Discovery Board microcontroller flash (**F8**)
-7. **Press RESET button** on the STM32 IoT Discovery Board to start the application execution
-8. To see **debug messages** you can open terminal application and connect to Virtual COM Port with settings 115200 Bauds, Parity None, 8 Data Bits, 1 Stop Bit
-9. In the **MQTT client** in AWS IoT, you should see the MQTT messages sent by your device
+4. The page [Getting Started with the STMicroelectronics (ST) STM32L4 Discovery Kit IoT node](https://docs.aws.amazon.com/freertos/latest/userguide/getting_started_st.html) contains the section **Configure Your Project**. Follow this instructions to:
+   - **Configure Your Wi-Fi Credentials**
+   - **Configure Your AWS IoT Endpoint**
+   - **Configure Your AWS IoT Credentials**
+   - **Run the FreeRTOS Samples**, only first 4 steps are relevant
+5. Connect your development PC with USB cable to STM32 IoT Discovery Boardu using the **USB STLINK** micro USB port
+6. Use **Flash-Download** to program the project to the Flash memory of the STM32 microcontroller
+7. **Press RESET button** on the STM32 IoT Discovery kit to start the application
+8. The **debug messages** are printed by default via a UART communication. To show these messages, you may connect a Terminal Applicaiton using a Virtual COM Port with settings 115200 Bauds, Parity None, 8 Data Bits, 1 Stop Bit. 
+9. Using **MQTT client** in AWS IoT, you should see the MQTT messages sent by your device
 
 <br/>
 
-**Note**: below table shows a comparison of resource requirements depending on Compiler used
+Keil MDK offers several benefits compared to open source development tools. For example you can see the thread activity of the RTOS kernel using the Event Recorder. Another major benefit is the memory savings that you can achieve using the highly optimized Arm Compiler.
+
+**Memory Size Comparision**
+
+The table table shows a comparison of resource requirements depending on Compiler used for generating the application program.
 
 | Compiler            | Optimization        | Code [Bytes] | RAM [Bytes] |
 |:------------------- |:-------------------:|:------------:|:-----------:|
