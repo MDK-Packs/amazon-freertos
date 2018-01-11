@@ -31,6 +31,6 @@ The table table shows a comparison of resource requirements depending on Compile
 
 | Compiler            | Optimization        | Code [Bytes] | RAM [Bytes] |
 |:------------------- |:-------------------:|:------------:|:-----------:|
-| ARM Compiler v6.9   | -Oz image size      | 109636       | 120640      |
-| GCC v6.3.1 20170620 | -O3 (optimize most) | 216376       | 121820      |
+| ARM Compiler v6.9   | -Oz (image size)    | 136468       | 120640      |
+| GCC v6.3.1 20170620 | -Os (image size)    | 175928       | 121820      |
 
