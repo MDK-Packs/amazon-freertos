@@ -29,8 +29,8 @@ Another major benefit is the commericial compiler that offers significant memory
 
 The table table shows a comparison of resource requirements depending on Compiler used for generating the application program.
 
-| Compiler            | Optimization        | Code [Bytes] | RAM [Bytes] |
-|:------------------- |:-------------------:|:------------:|:-----------:|
-| ARM Compiler v6.9   | -Oz (image size)    | 136468       | 120640      |
-| GCC v6.3.1 20170620 | -Os (image size)    | 175928       | 121820      |
+| Compiler            | Optimization        | ROM [Bytes] | RAM [Bytes] |
+|:------------------- |:-------------------:|:-----------:|:-----------:|
+| ARM Compiler v6.9   | -Oz (image size)    | 136468      | 120640      |
+| GCC v6.3.1 20170620 | -Os (image size)    | 175928      | 121820      |
 
