@@ -11,10 +11,10 @@ The following section explains how to get started with Amazon Web Services (AWS)
    - **Configure Your AWS IoT Endpoint**
    - **Configure Your AWS IoT Credentials**
    - **Run the FreeRTOS Samples**, only first 4 steps are relevant
-5. Connect your development PC with an USB cable to STM32 IoT Discovery Boardu using the **USB STLINK** micro USB port
+5. Connect your development PC with an USB cable to STM32 IoT Discovery Board using the **USB STLINK** micro USB port
 6. Use **Flash-Download** to program the project to the Flash memory of the STM32 microcontroller
 7. **Press RESET button** on the STM32 IoT Discovery kit to start the application
-8. The **debug messages** are printed by default via a UART communication. To show these messages, you may connect a Terminal Applicaiton using a Virtual COM Port with settings 115200 Bauds, Parity None, 8 Data Bits, 1 Stop Bit. 
+8. The **debug messages** are printed by default via a UART communication. To show these messages, you may connect a Terminal Application using a Virtual COM Port with settings 115200 Bauds, Parity None, 8 Data Bits, 1 Stop Bit. 
 9. Using **MQTT client** in AWS IoT, you should see the MQTT messages sent by your device
 
 <br/>
@@ -23,9 +23,9 @@ The following section explains how to get started with Amazon Web Services (AWS)
 
 Keil MDK offers several benefits compared to open source development tools. For example you can see the thread activity of the RTOS kernel using the Event Recorder. 
 
-Another major benefit is the commericial compiler that offers significant memory savings and performance improvements.
+Another major benefit is the commercial compiler that offers significant memory savings and performance improvements.
 
-**Memory Size Comparision**
+**Memory Size Comparison**
 
 The table table shows a comparison of resource requirements depending on Compiler used for generating the application program.
 
