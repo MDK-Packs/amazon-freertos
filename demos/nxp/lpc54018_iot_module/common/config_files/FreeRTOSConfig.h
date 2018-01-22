@@ -71,7 +71,7 @@
 #define configUSE_APPLICATION_TASK_TAG               0
 #define configUSE_COUNTING_SEMAPHORES                1
 #define configGENERATE_RUN_TIME_STATS                0
-#define configOVERRIDE_DEFAULT_TICK_CONFIGURATION    1
+#define configOVERRIDE_DEFAULT_TICK_CONFIGURATION    0
 #define configRECORD_STACK_HIGH_ADDRESS              1
 
 /* Co-routine definitions. */
@@ -186,7 +186,7 @@
 #define configTCP_ECHO_CLIENT_PORT    7
 
 /* Prevent the assembler seeing code it doesn't understand. */
-#ifdef __ICCARM__
+#if defined( __ICCARM__ ) || defined( __ARMCC_VERSION ) 
 	/* Logging task definitions. */
 	extern void vMainUARTPrintString( char * pcString );
 	void vLoggingPrintf( const char * pcFormat,
