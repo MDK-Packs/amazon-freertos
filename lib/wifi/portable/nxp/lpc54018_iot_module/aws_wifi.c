@@ -593,7 +593,7 @@ typedef PREPACK struct
 /* Taken from FNET */
 typedef PREPACK struct
 {
-    union
+    PREPACK union
     {
         uint8_t   name_ptr_c[2];
         uint16_t  name_ptr;
