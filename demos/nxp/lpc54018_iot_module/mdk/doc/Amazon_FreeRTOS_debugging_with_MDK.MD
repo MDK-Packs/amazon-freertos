@@ -6,17 +6,17 @@ Prerequisites
 
 1.  Download [**Amazon FreeRTOS Device Software**](https://github.com/MDK-Packs/amazon-freertos) and extract it to a folder which will be referred to as *&lt;BASE\_FOLDER&gt;*.
 2.  Make sure that your MDK installation has the latest versions of the following packs installed:
-    *   **The appropriate device family pack**
+    *   **Keil::LPC54000_DFP**
     *   **ARM::CMSIS**
     *   **ARM::CMSIS-FreeRTOS - 9.1.0**
     *   **Keil::ARM\_Compiler**
-3.  Copy the file **freertos\_evr.h** from the *&lt;MDK\_root\_folder&gt;*\\ARM\\PACK\\ARM\\CMSIS-FreeRTOS\\9.1.0\\CMSIS\\RTOS2\\FreeRTOS\\Include\\ folder to the *&lt;BASE\_FOLDER&gt;*\\demos\\*&lt;device_vendor&gt;*\\*&lt;board_name&gt;*\\mdk\\ folder.
-4.  Copy the file **freertos\_evr.c** file from the *&lt;MDK\_root\_folder&gt;*\\ARM\\PACK\\ARM\\CMSIS-FreeRTOS\\9.1.0\\CMSIS\\RTOS2\\FreeRTOS\\Source\\ folder to the *&lt;BASE\_FOLDER&gt;*\\demos\\*&lt;device_vendor&gt;*\\*&lt;board_name&gt;*\\mdk\\ folder.
+3.  Copy the file **freertos\_evr.h** from the *&lt;MDK\_root\_folder&gt;*\\ARM\\PACK\\ARM\\CMSIS-FreeRTOS\\9.1.0\\CMSIS\\RTOS2\\FreeRTOS\\Include\\ folder to the *&lt;BASE\_FOLDER&gt;*\\demos\\nxp\\lpc54018_iot_module\\mdk\\ folder.
+4.  Copy the file **freertos\_evr.c** file from the *&lt;MDK\_root\_folder&gt;*\\ARM\\PACK\\ARM\\CMSIS-FreeRTOS\\9.1.0\\CMSIS\\RTOS2\\FreeRTOS\\Source\\ folder to the *&lt;BASE\_FOLDER&gt;*\\demos\\nxp\\lpc54018_iot_module\\mdk\\ folder.
 
 In &micro;Vision
 ----------------
 
-1.  Open the project *&lt;BASE_FOLDER&gt;*\\demos\\*&lt;device_vendor&gt;*\\*&lt;board_name&gt;*\\mdk\\aws\_demos.uvprojx.
+1.  Open the project *&lt;BASE_FOLDER&gt;*\\demos\\nxp\\lpc54018_iot_module\\mdk\\aws\_demos.uvprojx.
 2.  ![Build target](./static/icons/build.png) **Build** the project (**F7**) and confirm an error free build.
 3.  Open the ![Manage RTE](./static/icons/rte.png) **Manage Run-Time Environment** dialog. Enable these software components:
     *   **CMSIS::CORE**
@@ -40,45 +40,3 @@ In &micro;Vision
 15. ![Run](./static/icons/run.png) **Start the code execution**.
 16. In the **Event Recorder Window**, you should now see **FreeRTOS Events**:
     ![Event Recorder Output](./static/images/evtrec_output.png)<br>
-
-Re-targeting UART printf debug to Event Recorder
-------------------------------------------------
-
-1.  ![Debug](./static/icons/debug.png) Stop the **Debug session (Ctrl + F5)**.
-2.  Remove the file **retarget\_io.c** from **app** group. Right-click the file and select **Remove File 'retarget_io.c'**. Confirm the removal. **Note:** not required in case of the NXP LPC54018_IoT_module.
-3.  Open the **main.c** file and replace the function:
-
-        void vMainUARTPrintString( char * pcString )
-        {
-             const uint32_t ulTimeout = 3000UL;
-             HAL_UART_Transmit( &xConsoleUart,
-                                ( uint8_t * ) pcString,
-                                strlen( pcString ),
-                                ulTimeout );
-        }
-
-    with:
-
-        void vMainUARTPrintString( char * pcString )
-        {
-          uint32_t i;
-          for (i = 0; i < strlen(pcString); i++) {
-            putchar(pcString[i]);
-          }
-        }
-
-4.  Edit **main.c** and remove the function:
-
-        void * malloc( size_t xSize )
-        {
-            configASSERT( xSize == ~0 );
-            return NULL;
-        }
-
-5.  ![Manage RTE](./static/icons/rte.png) Open the **Manage Run-Time Environment** window. For the software component **Compiler::I/O::STDOUT** select **EVR** and click **OK**.
-6.  In the Project window, expand the **Compiler** group. Double-click the **EventRecorderConf.h (Event Recorder)** file. Click on **Configuration Wizard** and select **256** instead of 64 for the **Number of Records**:<br>
-    ![EventRecorderConf.h](./static/images/evtrec_conf.png)
-8.  ![Rebuild](./static/icons/rebuild.png) Re-build the project (**F7**).
-9.  ![Debug](./static/icons/debug.png) Start a **Debug session (Ctrl+F5)**.
-10.  ![Debug (printf) Viewer](./static/icons/uart_window.png) Open the **Debug (printf) Viewer**. You should see the output now:<br>
-    ![Debug (printf) Viewer output](./static/images/debug_printf_viewer.png)
