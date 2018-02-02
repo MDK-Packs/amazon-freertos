@@ -27,7 +27,7 @@ Another major benefit is the commercial compiler that offers significant memory 
 
 **Memory Size Comparison**
 
-The table table shows a comparison of resource requirements depending on Compiler used for generating the application program.
+The table shows a comparison of resource requirements depending on Compiler used for generating the application program.
 
 | Compiler            | Optimization        | ROM [Bytes] | RAM [Bytes] |
 |:------------------- |:-------------------:|:-----------:|:-----------:|
