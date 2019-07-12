@@ -21,3 +21,6 @@ Based on your MCU hardware, download one of the following Integrated Development
 2. **STMicroelectronics** - [STM32 System Workbench](http://openstm32.org/HomePage).
 3. **NXP** - [IAR Embedded Workbench](https://www.iar.com/iar-embedded-workbench/partners/nxp).
 4. **Windows Simulator** - [Visual Studio Community Edition](https://www.visualstudio.com/downloads/).
+
+## License
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
